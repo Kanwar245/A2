@@ -9,7 +9,7 @@ Buxfer is a service that lets groups of people track shared expenses. For exampl
 
 A Buxfer application can manage multiple groups, and for each group must keep track of the group's members and the group's transactions (expenses paid by users). This means that we need three different data structures: one to keep track of the groups, one to keep track of the users of a group, and one for a group's transactions. Since we don't know the number of groups that will be created, the users that will join a group, or the number of transactions that will be posted, we will use linked lists to store groups, users and transactions. The picture below shows what these data structures look like for an example with two different groups, one with two users and three transactions, and the other with one user and two transactions. Three linked lists, one for groups, one for users, and one for transactions. Group nodes point to user and transaction nodes.
 
-![alt text] 
+![alt text] (https://github.com/Kanwar245/SimpleBuxfer/blob/master/list.jpg)
 
 A node in the linked list of groups (the list arranged vertically on the left in the picture above) stores the name of the group, a pointer to the first node of the linked list that stores the users of this group, a pointer to the first node of the linked list that stores all the transactions posted for this group, and a pointer to the next group list node.
 
