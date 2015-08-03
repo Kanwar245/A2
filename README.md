@@ -40,54 +40,10 @@ The buxfer executable can be started from the commandline with either zero or on
 
 If buxfer is run without any arguments, it starts in interactive mode, i.e. it will display a prompt and wait for the above commands at the command line. If run with one argument, it expects this argument to be the name of a file that contains one buxfer command per line (the commands are those from the list above) and will execute those commands from the file.
 
-Starter code
+## Code
 
-The a2 directory in your repository contains a Makefile and three files called buxfer.c, lists.h, and lists.c that provide the implementation of a skeleton of the buxfer data structures. buxfer.c provides the code to read and parse the user commands described above, and then calls the corresponding C function that implements the functionality of a user command. When run without command line arguments, buxfer will wait for commands from the console (standard input); when run with a filename as a command line argument, it will read commands from the specified input file. Read the starter code carefully to familiarize yourself with how it works.
+The repository contains a Makefile and three files: buxfer.c, lists.h, and lists.c that provide the implementation of a skeleton of the buxfer data structures. buxfer.c provides the code to read and parse the user commands described above, and then calls the corresponding C function that implements the functionality of a user command. When run without command line arguments, buxfer will wait for commands from the console (standard input); when run with a filename as a command line argument, it will read commands from the specified input file. Function prototypes for all functions implementing the various user commands are provided in lists.h.
 
-Function prototypes for all functions implementing the various user commands are provided in lists.h. So that the starter code compiles without errors, these functions are currently implemented in lists.c as stubs (i.e. functions whose body is empty except for the return statement). In addition, there are prototypes and stub implementations for a number of helper functions that you will use to implement the user command functions. Your task will be to complete the implementation of all these functions.
+You can compile the code using the provided Makefile. You simply need to run the command make (without any arguments) inside the toplevel directory containing all the required files. This will create an executable called buxfer.
 
-You can compile the starter code using the provided Makefile. You simply need to run the command make (without any arguments) inside your a2 directory. This will create an executable called buxfer. (We will talk about how Makefiles work in the next lecture.)
-
-We have also provided a sample input file batch_commands.txt that contains a series of buxfer user commands that buxfer will execute in batch mode if run with the name of the file as a command line argument.
-Your tasks
-
-You will complete the functions defined in lists.c. The comment above each function stub further explains the behaviour of the function and sometimes gives some implementation tips.
-
-Note that you are not allowed to modify buxfer.c or lists.h. The only C file you are modifying is lists.c. You may add new functions to lists.c but do not change the names or prototypes of the functions we have given you.
-
-Part I: Managing groups (20%)
-
-Start by building a solution that only manages the groups. I.e. implement the add_group and list_groups commands. This will involve completing the following C functions.
-
-    int add_group(Group **group_list, const char *group_name)
-    void list_groups(Group *group_list)
-    Group *find_group(Group *group_list, const char *group_name) 
-
-Part II: Managing users (40%)
-
-Next, write the code for the functions that are called for the user commands add_user, remove_user, list_users, user_balance, and under_paid.
-
-    int add_user(Group *group, const char *user_name)
-    int remove_user(Group *group, const char *user_name)
-    int list_users(Group *group)
-    int user_balance(Group *group, const char *user_name)
-    int under_paid(Group *group)
-
-Your code for the add_user, remove_user, and user_balance functions above should use the following helper function, which you also need to implement (again, a stub is provided):
-
-    User *find_prev_user(Group *group, const char *user_name)
-
-Part III: Managing transactions (40%)
-
-Write the following two functions that implement the functionality for the user commands add_xct and recent_xcts.
-
-    int add_xct(Group *group, const char *user_name, double amount)
-    int recent_xct(Group *group, long num_xct)
-
-At this point, you will also implement the following helper function and add calls to it in your remove_user function.
-
-    void remove_xct(Group *group, const char *user_name)
-
-Error handling
-
-The comments for the functions you are to implement define nearly all the error conditions you might encounter and tell you how to handle them. The main additional expectation is that you check the return value from malloc and terminate the program if malloc fails.
+The sample input file batch_commands.txt contains a series of buxfer user commands that buxfer will execute in batch mode if run with the name of the file as a command line argument.
