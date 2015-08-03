@@ -1,18 +1,15 @@
-A2
-==
+# Buxfer based simple application
 
-Buxfer simple application
+## Introduction
+
+Buxfer is a service that lets groups of people track shared expenses. For example, roommates might want to track shared expenses such as rent, utilities, and groceries, or colleagues might want to keep track of shared lunch bills. For each expense, Buxfer records the person who paid the expense and the expense cost. It allows group members to examine the amount that individuals have paid, look at the history of all transactions, or determine the group member that is currently owing the most. Buxfer started as a small C program written by three graduate students at Carnegie Mellon University for their personal use and has since grown into a full-blown company! This project implements a basic version of Buxfer.
 
 
-Assignment A2: Buxfer
+## Data structures
 
-Introduction
+A Buxfer application can manage multiple groups, and for each group must keep track of the group's members and the group's transactions (expenses paid by users). This means that we need three different data structures: one to keep track of the groups, one to keep track of the users of a group, and one for a group's transactions. Since we don't know the number of groups that will be created, the users that will join a group, or the number of transactions that will be posted, we will use linked lists to store groups, users and transactions. The picture below shows what these data structures look like for an example with two different groups, one with two users and three transactions, and the other with one user and two transactions. Three linked lists, one for groups, one for users, and one for transactions. Group nodes point to user and transaction nodes.
 
-Buxfer is a service that lets groups of people track shared expenses. For example, roommates might want to track shared expenses such as rent, utilities, and groceries, or colleagues might want to keep track of shared lunch bills. For each expense, Buxfer records the person who paid the expense and the expense cost. It allows group members to examine the amount that individuals have paid, look at the history of all transactions, or determine the group member that is currently owing the most. Buxfer started as a small C program written by three graduate students at Carnegie Mellon University for their personal use and has since grown into a full-blown company! Your task in this assignment is to write a basic version of Buxfer.
-Data structures
-
-A Buxfer application can manage multiple groups, and for each group must keep track of the group's members and the group's transactions (expenses paid by users). This means that we need three different data structures: one to keep track of the groups, one to keep track of the users of a group, and one for a group's transactions. Since we don't know the number of groups that will be created, the users that will join a group, or the number of transactions that will be posted, we will use linked lists to store groups, users and transactions. The picture below shows what these data structures look like for an example with two different groups, one with two users and three transactions, and the other with one user and two transactions.
-Three linked lists, one for groups, one for users, and one for transactions. Group nodes point to user and transaction nodes.
+![alt text] 
 
 A node in the linked list of groups (the list arranged vertically on the left in the picture above) stores the name of the group, a pointer to the first node of the linked list that stores the users of this group, a pointer to the first node of the linked list that stores all the transactions posted for this group, and a pointer to the next group list node.
 
