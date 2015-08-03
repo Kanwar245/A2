@@ -18,20 +18,21 @@ A user list node keeps track of the relevant information for this user, i.e. his
 A transaction (xct) list node keeps track of all the information about a transaction, i.e. the name of the user who paid for it, the amount, and a pointer to the next transaction list node.
 
 The user lists are sorted by the user's balances, with the user with the lowest balance first in the list and the user with the highest balance last in the list. (The order among users who have the same balance does not matter.) This makes it easier to find the user who has paid the least so far. The transaction lists are sorted by the time when a transaction was added, with the most recent transaction first in the list. This makes it easy to output a sorted history of the transactions in a group.
-Operations supported by Buxfer
+
+## Operations supported by Buxfer
 
 A Buxfer application supports the following user commands.
 
-    add_group group_name: Register a new group with name group_name.
-    list_groups: List the names of all groups that are currently registered.
-    add_user group_name user_name: Register a new user with name user_name as a member of group group_name.
-    list_users group_name: List the names of all users of group group_name together with their current balances (i.e. how much each has paid so far), sorted by their balances (lowest payer first).
-    user_balance group_name user_name: Return the balance of user user_name in group group_name
-    remove_user group_name user_name: Remove user user_name from group group_name
-    under_paid group_name: Output the name of the user in group group_name who has paid the least.
-    add_xct group_name user_name amount: Add a new transaction for group group_name. The transaction is paid by user_name and the amount is amount.
-    recent_xct group_name num_xct: List the num_xct most recent transactions for group group_name.
-    quit: Shut down buxfer 
+    * add_group group_name: Register a new group with name group_name.
+    * list_groups: List the names of all groups that are currently registered.
+    * add_user group_name user_name: Register a new user with name user_name as a member of group group_name.
+    * list_users group_name: List the names of all users of group group_name together with their current balances (i.e. how much each has paid so far), sorted by their balances (lowest payer first).
+    * user_balance group_name user_name: Return the balance of user user_name in group group_name
+    * remove_user group_name user_name: Remove user user_name from group group_name
+    * under_paid group_name: Output the name of the user in group group_name who has paid the least.
+    * add_xct group_name user_name amount: Add a new transaction for group group_name. The transaction is paid by user_name and the amount is amount.
+    * recent_xct group_name num_xct: List the num_xct most recent transactions for group group_name.
+    * quit: Shut down buxfer 
 
 The buxfer executable can be started from the commandline with either zero or one argument as follows:
 
